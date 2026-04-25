@@ -1,0 +1,32 @@
+{
+  "runt_vehiculo": {
+    "vin": { "column": 22, "path": "informacion_general.vin" },
+    "numMotor": { "column": 23, "path": "informacion_general.numMotor" },
+    "modelo": { "column": 24, "path": "informacion_general.modelo" },
+    "marca": { "column": 25, "path": "informacion_general.marca" },
+    "cilindraje": { "column": 26, "path": "informacion_general.cilindraje" },
+    "fechaRegistro": { "column": 28, "path": "informacion_general.fechaRegistro", "format": "date" }
+  },
+  "rtm": {
+    "kilometraje": { "column": 27, "path": "revision_tecnico_mecanica.kilometraje", "strategy": "latest", "sort_path": "fechaVencimientoRvt" },
+    "estadoRvt": { "column": 29, "path": "revision_tecnico_mecanica.vigencia", "strategy": "rtm_logic", "sort_path": "fechaVencimientoRvt" },
+    "fechaVencimientoRvt": { "column": 30, "path": "revision_tecnico_mecanica.fechaVencimientoRvt", "strategy": "rtm_logic", "sort_path": "fechaVencimientoRvt", "format": "date" }
+  },
+  "soat": {
+    "estadoSoat": { "column": 31, "path": "soat.estadoSoat", "strategy": "latest", "sort_path": "fechaVencimSoat" },
+    "fechaVencimSoat": { "column": 32, "path": "soat.fechaVencimSoat", "strategy": "latest", "sort_path": "fechaVencimSoat", "format": "date" }
+  },
+  "ciudadano": {
+    "categorias": { "column": 34, "path": "detalleLicencia.categoria", "strategy": "join_dates" },
+    "vencimiento_labor": { "column": 35, "path": "detalleLicencia.fechaVencimiento", "strategy": "match_category", "format": "date" },
+    "estadoLicencia": { "column": 36, "path": "estadoLicencia" },
+    "restricciones": { "column": 37, "path": "restricciones" }
+  },
+  "simit": {
+    "codigoInfraccion": { "column": 40, "path": "infracciones.infracciones.0.codigoInfraccion", "strategy": "newline", "prefix": "• " },
+    "descripcionInfraccion": { "column": 41, "path": "infracciones.infracciones.0.descripcionInfraccion", "strategy": "newline", "prefix": "• " },
+    "fechaImposicion": { "column": 42, "path": "infracciones.fechaComparendo", "strategy": "newline", "prefix": "• ", "format": "date" },
+    "estado": { "column": 43, "path": "infracciones.tipoItem", "strategy": "newline", "prefix": "• " },
+    "estadoCartera": { "column": 44, "path": "infracciones.estadoCartera", "strategy": "newline", "prefix": "• " }
+  }
+}

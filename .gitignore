@@ -1,0 +1,32 @@
+# Dependencies
+venv/
+.venv/
+env/
+/bin/
+/lib/
+/share/
+/include/
+*.pyc
+__pycache__/
+
+# Logging
+logs/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Pytest
+.pytest_cache/
+
+#storage/mass results
+/storage/mass_results/*
+
+# Environment variables
+.env
+

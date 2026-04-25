@@ -1,0 +1,23 @@
+# Docker Compose configuration for API-RUNT
+
+services:
+  api-runt:
+    build: .
+    container_name: api-runt-backend
+    ports:
+      - "5020:8000"
+    env_file:
+      - .env
+    environment:
+      # We override the TESSERACT_CMD from .env to use the Linux path in the container
+      - TESSERACT_CMD=/usr/bin/tesseract
+    volumes:
+      # Mount the current directory for live development
+      - .:/app
+      # Ensure logs and storage are persistent
+      - api-logs:/app/logs
+      - api-storage:/app/storage
+
+volumes:
+  api-logs:
+  api-storage:
